@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div class="parent">
+        <div class="main">
+            <h3 id="dateArea"></h3>
+            <h1 id="area"></h1>
+        </div>
+    </div>
+
+    <script>
+
+        setInterval(showTime, 1000);
+        function showTime() {
+            let today = new Date();
+            let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            let am_pm;
+            if (today.getHours() < 12) {
+                am_pm = "AM";
+            } else {
+                am_pm = "PM";
+            }
+
+            time += " " + am_pm;
+            document.getElementById("area").innerHTML= time;
+
+            let month = today.getMonth();
+            
+            switch(month) {
+                case 0:
+                    month = "January";
+                    break;
+                case 1:
+                    month = "February";
+                    break;
+                case 2:
+                    month = "March";
+                    break;
+                case 3:
+                    month = "April";
+                    break;
+                case 4:
+                    month = "May";
+                    break;
+                case 5:
+                    month = "June";
+                    break;
+                case 6:
+                    month = "July";
+                    break;
+                case 7:
+                    month = "August";
+                    break;
+                case 8:
+                    month = "September";
+                    break;
+                case 9:
+                    month = "October";
+                    break;
+                case 10:
+                    month = "November";
+                    break;
+                case 11:
+                    month = "December";
+                    break;
+            }
+
+            let date = today.getDay() + " " + month + ", " + today.getFullYear() + "<br>";
+            document.getElementById("dateArea").innerHTML=date;
+        }
+    </script>
+</body>
+</html>
